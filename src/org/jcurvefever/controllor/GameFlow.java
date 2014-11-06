@@ -3,6 +3,7 @@ package org.jcurvefever.controllor;
 import java.awt.Canvas;
 
 import org.jcurvefever.graphics.Screen;
+import org.jcurvefever.input.KeyInput;
 import org.jcurvefever.ui.GameFrame;
 
 public class GameFlow extends Canvas implements Runnable {
@@ -13,6 +14,8 @@ public class GameFlow extends Canvas implements Runnable {
 	public static final int 	WIDTH 	= 800;
 	public static final int 	HEIGHT 	= (int) (WIDTH * (1080 / 1920d));
 	
+	private KeyInput			keyboard;
+	
 	private Screen				screen;
 	private GameFrame 			frame;
 	
@@ -21,8 +24,10 @@ public class GameFlow extends Canvas implements Runnable {
 	private int 				updates, frames;
 	
 	public GameFlow() {
-		screen	= new Screen(WIDTH, HEIGHT);
-		frame 	= new GameFrame(screen);
+		screen		= new Screen(WIDTH, HEIGHT);
+		frame 		= new GameFrame(screen);
+		
+		keyboard 	= new KeyInput(screen);
 		
 		start();
 	}

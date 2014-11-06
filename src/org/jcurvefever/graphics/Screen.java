@@ -16,6 +16,9 @@ public class Screen extends JPanel {
 		width	= w;
 		height 	= h;
 		setPreferredSize(new Dimension(width, height));
+		setFocusable(true);
+		
+		requestFocus();
 	}
 	
 	public void render() {
